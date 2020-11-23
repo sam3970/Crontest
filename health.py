@@ -61,16 +61,13 @@ avgCpu = heal.getCpuUsage()
 if avgCpu > heal.cpuLimit:
 	heal.msg += 'cpu(' + str(heal.cpuLimit) + '%) exceed!.\r\n'
 	heal.msg += 'cpu usage : ' + str(avgCpu) + '%\r\n'
-	print('1')
 	
 if memUsage > heal.memLimit:
 	heal.msg += 'memory(' + str(heal.memLimit) + '%) exceed!.\r\n'
 	heal.msg += 'memory usage : ' + str(memUsage) + '%'
-	print('2')
 	
 if avgCpu > heal.cpuLimit or memUsage > heal.memLimit:
 	heal.send(heal.msg)
-	print('3')
 	
 else:
 	print("CPU, Memory가 정상수치를 유지하고 있습니다.")
