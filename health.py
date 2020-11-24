@@ -57,21 +57,27 @@ memUsage = heal.getMemUsage()
 avgCpu = heal.getCpuUsage()
 
 #print(memUsage)
+def main():
+	
+	heal = Health()
 
-if avgCpu > heal.cpuLimit:
-	heal.msg += 'cpu(' + str(heal.cpuLimit) + '%) exceed!.\r\n'
-	heal.msg += 'cpu usage : ' + str(avgCpu) + '%\r\n'
+	memUsage = heal.getMemUsage()
+	avgCpu = heal.getCpuUsage()
+
+	if avgCpu > heal.cpuLimit:
+		heal.msg += 'cpu(' + str(heal.cpuLimit) + '%) exceed!.\r\n'
+		heal.msg += 'cpu usage : ' + str(avgCpu) + '%\r\n'
 	
-if memUsage > heal.memLimit:
-	heal.msg += 'memory(' + str(heal.memLimit) + '%) exceed!.\r\n'
-	heal.msg += 'memory usage : ' + str(memUsage) + '%'
+	if memUsage > heal.memLimit:
+		heal.msg += 'memory(' + str(heal.memLimit) + '%) exceed!.\r\n'
+		heal.msg += 'memory usage : ' + str(memUsage) + '%'
 	
-if avgCpu > heal.cpuLimit or memUsage > heal.memLimit:
-	heal.send(heal.msg)
+	if avgCpu > heal.cpuLimit or memUsage > heal.memLimit:
+		heal.send(heal.msg)
 	
-else:
-	print("CPU, Memory가 정상수치를 유지하고 있습니다.")
+	else:
+		print("CPU, Memory가 정상수치를 유지하고 있습니다.")
 
 ########## main method check part(similar initializing) ##########
-#if __name__ == "__main__" :
-#    main()
+if __name__ == "__main__" :
+	main()
